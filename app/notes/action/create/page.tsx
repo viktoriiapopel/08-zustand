@@ -1,9 +1,7 @@
-import Link from "next/link";
 import css from "./CreateNote.module.css";
-import NoteForm from "@/components/NoteForm/NoteForm";
-import { getCategories } from "@/lib/api";
 import { Metadata } from "next";
 import { NOTE_IMAGE_URL, SITE_URL } from "@/lib/constants";
+import CreateNoteClient from "./CreateNoteClient";
 
 export const metadata: Metadata = {
   title: "Create new note",
@@ -29,7 +27,7 @@ const CreateNote = () => {
     <main className={css.main}>
       <div className={css.container}>
         <h1 className={css.title}>Create note</h1>
-        <NoteForm onClose={handleClose} />
+        <CreateNoteClient />
       </div>
     </main>
   );
