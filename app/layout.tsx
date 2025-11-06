@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/Header/Header";
 import TanstackProvider from "../components/TanStackProvider/TanStackProvider";
 import Footer from "@/components/Footer/Footer";
+import { NOTE_IMAGE_URL, SITE_URL } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,24 +23,24 @@ const roboto = Roboto({
   display: "swap",
 });
 
-// export const metadata: Metadata = {
-//   title: "NoteHub",
-//   description: "Create you next note",
-//   openGraph: {
-//     title: "Notes collection",
-//     description: "Create collection of your personal notes",
-//     url: SITE_URL,
-//     siteName: "NoteHub",
-//     images: [
-//       {
-//         url: GRAPH_IMAGE_URL,
-//         width: 1200,
-//         height: 630,
-//         alt: "Notebook image",
-//       },
-//     ],
-//   },
-// };
+export const metadata: Metadata = {
+  title: "NoteHub",
+  description: "Create you next note",
+  openGraph: {
+    title: "Notes collection",
+    description: "Create collection of your personal notes",
+    url: SITE_URL,
+    siteName: "NoteHub",
+    images: [
+      {
+        url: NOTE_IMAGE_URL,
+        width: 1200,
+        height: 630,
+        alt: "Image NoteHub",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -50,7 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}`}
+      >
         <TanstackProvider>
           <Header />
           {children}

@@ -12,6 +12,7 @@ import Pagination from "../../../../components/Pagination/Pagination";
 import SearchBox from "../../../../components/SearchBox/SearchBox";
 import { fetchNotes } from "@/lib/api";
 import type { Note } from "../../../../types/note";
+import Link from "next/link";
 
 export default function NotesClient({ tag }: { tag?: string }) {
   const [search, setSearch] = useState("");
@@ -66,16 +67,19 @@ export default function NotesClient({ tag }: { tag?: string }) {
           />
         )}
 
-        <button className={css.button} onClick={() => setShowModal(true)}>
+        <Link className={css.button} href="/notes/action/create">
           Create note +
-        </button>
+        </Link>
+        {/* <button className={css.button} onClick={() => setShowModal(true)}>
+          Create note +
+        </button> */}
       </header>
       {notes.length > 0 && <NoteList notes={notes} />}
-      {showModal && (
+      {/* {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <NoteForm onClose={() => setShowModal(false)} />
         </Modal>
-      )}
+      )} */}
     </div>
   );
 }
